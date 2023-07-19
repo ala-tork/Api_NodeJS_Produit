@@ -1,10 +1,15 @@
 const express = require('express')
 const mongoose = require('./DB/ConnectionDB');
 const ProduitService = require('./Routers/Produit');
-const app = express()
+
+const cors = require('cors')
 const port = 3000
+const app = express();
+
 app.use(express.json());
-//app.use(cros());
+
+
+app.use(cors());
 
 app.use( '/api' , ProduitService );
 

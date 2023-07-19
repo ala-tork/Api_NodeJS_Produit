@@ -52,8 +52,8 @@ router.delete('/id/:id',async(req,res)=>{
     }
 })
 
-router.get("/search",async(req,res)=>{
-    const x = new RegExp(`^${req.body.name}`, 'i');
+router.get("/search/:ProductName",async(req,res)=>{
+    const x = new RegExp(`^${req.params.ProductName}`, 'i');
     let produit=await Produit.find({name:x});
     if(!produit)
         return res.status(400).send('ther is no product with this name');
